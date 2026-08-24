@@ -114,7 +114,7 @@ window.LESSONS_A1 = [
       ] },
       { type: 'truefalse', statement: 'Слово "I" (я) всегда пишется с большой буквы.', answer: true },
       { type: 'truefalse', statement: 'Местоимение "They" используется только для людей.', answer: false },
-      { type: 'wordorder', words: ['from', 'Where', 'you?', 'are'], answer: 'Where are you from?' }
+      { type: 'wordorder', words: ['from?', 'Where', 'you', 'are'], answer: 'Where are you from?' }
     ]
   },
   {
@@ -587,7 +587,7 @@ window.LESSONS_A1 = [
       ] },
       { type: 'truefalse', statement: 'Мы говорим "in Monday".', answer: false },
       { type: 'truefalse', statement: '"There is" используется с неисчисляемыми существительными (например, milk).', answer: true },
-      { type: 'wordorder', words: ['from', 'Where', 'they?', 'are'], answer: 'Where are they?' }
+      { type: 'wordorder', words: ['from?', 'Where', 'they', 'are'], answer: 'Where are they from?' }
     ]
   }
 ];

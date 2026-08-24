@@ -667,7 +667,9 @@ function renderExercise(container, exercise, index) {
       if (exerciseResults[index] !== null) return;
       
       const answerStr = currentWords.map(c => c.textContent).join(' ');
-      const isCorrect = answerStr.toLowerCase() === exercise.answer.toLowerCase();
+      const cleanStr = (s) => (s || '').replace(/[.,?!]/g, '').replace(/\s+/g, ' ').trim().toLowerCase();
+      const isCorrect = (answerStr.toLowerCase() === exercise.answer.toLowerCase()) || 
+                        (cleanStr(answerStr) === cleanStr(exercise.answer));
       
       sentence.classList.add(isCorrect ? 'correct' : 'wrong');
       btn.disabled = true;
