@@ -503,10 +503,12 @@ function renderExercise(container, exercise, index) {
     const input = document.getElementById(`fill-input-${index}`);
     const resultDiv = document.getElementById(`fill-result-${index}`);
     
-    btn.onclick = () => {
+    const normalizeText = (t) => (t || '').replace(/[’‘`]/g, "'").replace(/[.,?!]/g, '').trim().toLowerCase();
+    
+    const checkFill = () => {
       if (exerciseResults[index] !== null) return;
-      const val = input.value.trim().toLowerCase();
-      const expected = exercise.answer.toLowerCase();
+      const val = normalizeText(input.value);
+      const expected = normalizeText(exercise.answer);
       const isCorrect = val === expected;
       
       input.classList.add(isCorrect ? 'correct' : 'wrong');
@@ -519,6 +521,13 @@ function renderExercise(container, exercise, index) {
       }
       recordResult(index, isCorrect);
     };
+
+    btn.onclick = checkFill;
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        checkFill();
+      }
+    });
     
   } else if (exercise.type === 'match') {
     html += `<div class="exercise-question">Сопоставьте английские и русские слова:</div>
